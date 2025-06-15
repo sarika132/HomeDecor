@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  color: burlywood;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.auth-container, .home-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.6rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
