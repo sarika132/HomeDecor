@@ -1,6 +1,25 @@
 import React from 'react';
 import './Auth.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+
+
+const onSubmit=(data) =>{
+  const storedUser =JSON.parse(localStorage.getItem("user")||"{}");
+
+
+console.log(data);
+console.log(storedUser);
+if(
+  data.username ===storedUser.username &&
+  data.password ===storedUser.password
+){
+  alert("Login successful!");
+  Navigate("/dashboard");
+}else{
+  alert("Invalid credentials");
+}
+};
+
 
 const Login = () => {
   return (

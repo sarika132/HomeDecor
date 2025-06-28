@@ -1,17 +1,25 @@
-import React from "react";
+import React from 'react';
 import { Link } from "react-router-dom";
+import "../Pages/Auth.css";
 
-const Navbar = () => {
+function Navbar() {
   return (
-    
     <nav className="navbar">
-      <h1 className="logo">Ghar Sanshar</h1>
+      <div className="logo">Ghar Sansar</div>
+      <input className="search-bar" type="text" placeholder="Start your Search" />
+      <Link to="/login">Login</Link>
+      <Link to="/cart">Cart</Link>
       <ul className="nav-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/login">Login</Link></li>
+        <li>Categories</li>
+        <li>Furniture</li>
+        <li>Pillows</li>
+        <li>Design</li>
+        <li>Rugs</li>
+        <li>Sale & Clearance</li>
+        <li>Trends</li>
       </ul>
     </nav>
   );
-};
+}
 
 export default Navbar;

@@ -1,26 +1,31 @@
-import React from "react";
+import React from 'react';
+import './Auth.css';
+import Navbar from '../Components/Navbar';
+<img src="/img1.jpg" alt="Interior Design 1" />
 
-const Homepage = () => {
-    return (
-    <div className="auth-wrapper">
-      <div className="nav1">
-        <nav>
-        <div class="container">
-        <p>Shop</p>
-        <p>Trending</p>
-        <p>Furniture</p>
-        <p>Sale and Clearance</p>
-        <p>Login</p>
+
+function Homepage() {
+  return (
+    <>
+      <Navbar />
+      <div className="homepage">
+        <div className="hero-section">
+          <div className="hero-left">
+            <img src={img1} alt="Sketch & Photo" />
+          </div>
         </div>
-</nav>
+
+        <div className="hero-text">
+          <h2>Discover your home as you want - Ghar Sansar</h2>
+        </div>
+
+        <div className="below-images">
+          <img src={img2} alt="Decor 1" />
+          <img src={img3} alt="Decor 2" />
+        </div>
       </div>
-      <div className="auth-form-section">
-        <h2>img 1</h2>
-        <p>img2</p>
-        
-      </div>
-    </div>
+    </>
   );
-};
+}
 
 export default Homepage;
