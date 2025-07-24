@@ -1,27 +1,23 @@
-import React from 'react';
-import './Auth.css';
-import { Link, Navigate } from 'react-router-dom';
-
-
-const onSubmit=(data) =>{
-  const storedUser =JSON.parse(localStorage.getItem("user")||"{}");
-
-
-console.log(data);
-console.log(storedUser);
-if(
-  data.username ===storedUser.username &&
-  data.password ===storedUser.password
-){
-  alert("Login successful!");
-  Navigate("/dashboard");
-}else{
-  alert("Invalid credentials");
-}
-};
-
+import React from "react";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import "./Auth.css";
 
 const Login = () => {
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+
+  const onSubmit = (data) => {
+    const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
+
+    if (data.email === storedUser.email && data.password === storedUser.password) {
+      alert("Login successful!");
+      navigate("/homepage");
+    } else {
+      alert("Invalid credentials");
+    }
+  };
+
   return (
     <div className="auth-wrapper">
       <div className="auth-image-section">
@@ -30,9 +26,9 @@ const Login = () => {
       <div className="auth-form-section">
         <h2>Welcome back</h2>
         <p>Login to continue</p>
-        <form>
-          <input type="email" placeholder="Email" required />
-          <input type="password" placeholder="Password" required />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input type="email" placeholder="Email" {...register("email")} required />
+          <input type="password" placeholder="Password" {...register("password")} required />
           <div className="remember-box">
             <input type="checkbox" id="remember" />
             <label htmlFor="remember">Remember me</label>
